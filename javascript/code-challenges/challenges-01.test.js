@@ -70,15 +70,11 @@ const greeting = (word) => {
 const speaker = (words, callback) => {
   // Solution code here...
   let newArr=[];
-  word.forEach(element=>{
-    let item=callback(element);
-    forEach.push(item);
-
-      
-    })
-    return newArr;
-      
-    };
+  words.forEach((item) => {
+    newArr.push(callback(item));
+  });
+  return newArr;
+};
  
 
 /* ------------------------------------------------------------------------------------------------
