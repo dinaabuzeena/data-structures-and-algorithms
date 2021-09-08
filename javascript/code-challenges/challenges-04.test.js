@@ -24,9 +24,12 @@ function lower(str) {
 const updateAnimal = (arr, callback) => {
   // Solution code here...
   let newArr=arr.sort(callback);
-   let callbackFunction=()=>
 
-   }
+  callback=()=>{
+    str.toUpperCase-str.toLowerCase;
+  }
+  
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
