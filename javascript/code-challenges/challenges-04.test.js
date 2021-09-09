@@ -23,14 +23,7 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
-  let newArr=arr.sort(callback);
-
-  callback=()=>{
-    str.toUpperCase-str.toLowerCase;
-  }
-  
-  return newArr;
-};
+ return arr.map((item)=>callback(item));
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -55,7 +48,14 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
-  return arr.sort((a, b) => a - b)
+  return arr.sort(function (a, b) {
+    if (a < b) {
+      return -1;
+    } else if (a > b) {
+      return 1;
+    }
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,7 +68,14 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 
 const sortBackwards = (arr) => {
   // Solution code here...
-  return arr.sort((a, b) => b - a)
+  return arr.sort(function (a, b) {
+    if (a < b) {
+      return -1;
+    } else if (a > b) {
+      return 1;
+    }
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -83,7 +90,8 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
-  return arr.sort();
+  arr.sort();
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -101,7 +109,11 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
-  return arr.sort((a, b) => a.price - b.price)
+  arr.sort((one, two) => {
+    return one.price - two.price;
+  });
+
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
