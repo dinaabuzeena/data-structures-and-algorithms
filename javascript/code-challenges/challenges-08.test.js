@@ -56,8 +56,10 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
-};
-
+  return charArray.sort((value_1,value_2)=>{
+    return value_1.children.length - value_2.children.length || value_1.name
+   })
+ };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -67,7 +69,8 @@ Write a function named containsW that takes in a string. This function should us
 
 const containsW = (str) => {
   // Solution code here...
- 
+  let string = /w/g
+  return (string.test(str))
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,9 +87,9 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  const regex = /\d/gi;
-  return regex.test(input);
-
+  let string = /[0-9]/g
+  return (string.test(input))
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -97,6 +100,8 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
+  let string = /world/g
+  return (string.test(input))
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,14 +114,13 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  const findCapilized = /[A-Z][a-z]*/g;
-  let found = str.match(findCapilized);
-
-  if (found) {
-    return found;
-  } else {
-    return [];
-  }
+  let string = /\b[A-Z]\w*/g;
+    let newArray = [] ;
+    if (str.match(string))
+    {
+      newArray = str.match(string);
+    }
+    return newArray;
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
