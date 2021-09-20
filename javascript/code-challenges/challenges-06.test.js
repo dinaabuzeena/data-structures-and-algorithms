@@ -21,19 +21,17 @@ For example:
 
 Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
-arr.map(item=>stringArr.push(item+'?') )
 const getNames = (arr) => {
-  // Solution code here...
-  let arr1 = arr.map(item => {
-    return (item.name.split(''));
-  });
-  let arr2 = arr1.map(item => {
-    return (item.reverse());
-  });
-  let arr3 = arr2.map(item => {
-    return (item.join(''));
-  });
-  return (arr3);
+  let newArr = arr.map(obj => { return (rev(obj.name)); });
+  return newArr;
+};
+
+const rev = (str) => {
+  let newString = '';
+  for (var i = str.length - 1; i >= 0; i--) {
+    newString += str[i];
+  }
+  return newString;
 };
 
 
@@ -46,11 +44,9 @@ Write a function that appends ' The end.' to a string, and returns the modified 
 ------------------------------------------------------------------------------------------------ */
 
 const appendTheEnd = (str) => {
-  // Solution code here...
-  let string = str + ' The end.';
-  return string;
+  let newStr = str + ' The end.';
+  return newStr;
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -66,11 +62,9 @@ console.log(a) prints [1, 2, 3, 1]
 ------------------------------------------------------------------------------------------------ */
 
 const appendFirstToLast = (arr) => {
-  // Solution code here...
-  const appendFirstToLast = (arr) => {
-    arr.push(arr[0]);
-    return arr;
+  return arr.push(arr[0]);
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -88,7 +82,6 @@ console.log(a) prints { fullName: 'Octavia Estelle Butler', yearBorn: 1947 }
 ------------------------------------------------------------------------------------------------ */
 
 const addBirthYearProperty = (obj, year) => {
-  // Solution code here...
   obj.yearBorn = year;
 };
 
