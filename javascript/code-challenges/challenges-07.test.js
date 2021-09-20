@@ -25,20 +25,9 @@ let starWarsPeople = [
 ];
 
 const sortStarWarsCharacters = (starWarsArr) => {
-  // Solution code here...
-  starWarsArr.sort((a, b) => {
-    if (parseInt(a.height) > parseInt(b.height)) {
-      return -1;
-    }
-​
-    else if (parseInt(a.height) < parseInt(b.height)) {
-      return 1;
-    }
-​
-  });
-  return starWarsArr;
-};
-
+  return starWarsArr.sort((h1, h2) => { return h2.height - h1.height })
+}
+ 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -47,10 +36,10 @@ Write a function named removeThree that takes an index and an array. The functio
 ------------------------------------------------------------------------------------------------ */
 
 const removeThree = (idx, arr) => {
-  // Solution code here...
   arr.splice(idx, 3);
   return arr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -59,11 +48,9 @@ Write a function named joinArray that takes an array and joins all of the elemen
 ------------------------------------------------------------------------------------------------ */
 
 const joinArray = (arr) => {
-  // Solution code here...
-  let str = arr.join(' ');
-  return str;
-};
+   return arr.join(' ');
 
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -79,15 +66,14 @@ For example, if the input is 'Welcome', the output will be:
 ------------------------------------------------------------------------------------------------ */
 
 const howMuchPencil = (str) => {
-    // Solution code here...
-    let result = [];
-    for (let i = 0; i <= str.length; i++) {
-      result.push(str.split('').slice(i).join(''));
-    }
-    return result;
-  };
-
-
+  let result = [];
+  let str2 = str.split('');
+  for (let index = 0; index < str.length + 1; index++) {
+    result.push(str2.join(''));
+    str2.splice(0, 1);
+  }
+  return result;
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -97,9 +83,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
-  let str = arr.split('');
-  return str;
+  return arr.split('');
+
 };
 
 
@@ -146,16 +131,15 @@ const gruffaloCrumble = {
 
 
 const listFoods = (recipe) => {
+  let newArr2 = recipe.ingredients;
   let result = [];
-  // Solution code here...
-  for (let i = 0; i < gruffaloCrumble.length; i++) {
-    ​
-        result.push(gruffaloCrumble.slice(recipe, i));
-    ​
-      }
+  for (var i = 0; i < newArr2.length; i++) {
+    let index = newArr2[i].indexOf(' ', 3);
+    let newArr = newArr2[i].slice(index + 1, newArr2[i].length);
+    result.push(newArr);
+  }
   return result;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
